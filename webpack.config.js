@@ -8,10 +8,6 @@ var htmlPlugin = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: './src/index.jsx',
-    /**
-     * Секцию output в данном случае можно было бы опустить,
-     * т.к. по умолчанию заданы именно такие настройки.
-     */
     output: {
         path: __dirname + '/dist',
         filename: 'main.js'
