@@ -17,3 +17,23 @@
     left: 0;
     margin: auto;
 }
+
+.reusable_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.reusable_subInfo {
+    display: flex;
+    flex-direction: row;
+}
+
+.reusable_imgContainer {
+}
+
+.reusable_generalInfo {
+    
+}
+
+.reusable_subInfo {
+}

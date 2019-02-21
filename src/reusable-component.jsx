@@ -78,7 +78,7 @@ export class ReusableComponent extends React.Component {
                 && <div className='dataFields'>
                         <ListGroup>
                             {arr.map((item) => {
-                                return <DataFields object={item} value={this.state.inputValue}/>
+                                return <DataFields object={item} className='changebleClass' value={this.state.inputValue}/>
                             })}
                         </ListGroup>
                     </div>
