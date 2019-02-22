@@ -1,2 +1,2 @@
-# react-20-02-19
+# react-typehead
 Поправлено.
