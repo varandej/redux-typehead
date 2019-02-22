@@ -20,7 +20,7 @@ export class ReusableComponent extends React.Component {
     }
 
     search(value){
-        const url = `https://restcountries.eu/rest/v2/name/${value}`;
+        const url = this.props.url+value;
         Axios.get(url)
         .then((response) => {
             this.setState({
@@ -46,8 +46,8 @@ export class ReusableComponent extends React.Component {
         this.setState({
             inputValue: value
         });
-        (value.length > 1)
-        && this.search(value)
+        (value.length > 2)
+        && this.search(value);
     }
 
     handleInputBlur() {
@@ -61,27 +61,26 @@ export class ReusableComponent extends React.Component {
         return(
             <div className='container'>
                 <div className='frame'>
-                    <div>
-                        <InputGroup size="sm" className="mb-3" >    
-                            <FormControl 
-                                aria-label='Small'
-                                aria-describedby='inputGroup-sizing-sm'
-                                type='text'
-                                onBlur={this.handleInputBlur}
-                                onFocus={this.handleInputFocus}
-                                onChange={this.handeInputChange}
-                            />
-                        </InputGroup>
-                    </div>
+                    <InputGroup size="sm" className="mb-3" >    
+                        <FormControl 
+                            aria-label='Small'
+                            aria-describedby='inputGroup-sizing-sm'
+                            type='text'
+                            placeholder="Let's search something!.."
+                            onBlur={this.handleInputBlur}
+                            onFocus={this.handleInputFocus}
+                            onChange={this.handeInputChange}
+                        />
+                    </InputGroup>
                 </div>
                 {this.state.showFields 
                 && <div className='dataFields'>
-                        <ListGroup>
-                            {arr.map((item) => {
-                                return <DataFields object={item} className='changebleClass' value={this.state.inputValue}/>
-                            })}
-                        </ListGroup>
-                    </div>
+                    <ListGroup>
+                        {arr.map((item) => {
+                            return <DataFields object={item} className='changebleClass' value={this.state.inputValue}/>
+                        })}
+                    </ListGroup>
+                </div>
                 }
             </div>
         )
