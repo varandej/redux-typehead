@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import { DataFields } from './data-fields.jsx';
+import { ResultCard } from './result-card.jsx';
 import { InputGroup, FormControl, ListGroup } from 'react-bootstrap';
 
 export class ReusableComponent extends React.Component {
@@ -78,7 +78,7 @@ export class ReusableComponent extends React.Component {
                 && <div className='dataFields'>
                     <ListGroup>
                         {arr.map((item) => {
-                            return <DataFields object={item} className='changebleClass' value={this.state.inputValue}/>
+                            return <ResultCard object={item} className='changebleClass' value={this.state.inputValue}/>
                         })}
                     </ListGroup>
                 </div>
