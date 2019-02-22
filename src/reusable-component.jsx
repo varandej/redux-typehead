@@ -66,7 +66,7 @@ export class ReusableComponent extends React.Component {
                             aria-label='Small'
                             aria-describedby='inputGroup-sizing-sm'
                             type='text'
-                            placeholder="Let's search something!.."
+                            placeholder="Let's search for something!.."
                             onBlur={this.handleInputBlur}
                             onFocus={this.handleInputFocus}
                             onChange={this.handeInputChange}
