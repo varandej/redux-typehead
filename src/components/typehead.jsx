@@ -1,67 +1,34 @@
 import React from 'react';
-import Axios from 'axios';
 import { ResultCard } from './result-card.jsx';
 import { InputGroup, FormControl, ListGroup } from 'react-bootstrap';
 
 export class Typehead extends React.Component {
-
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.state = {
-            showFields: false,
-            inputValue: '',
-            responseData: []
-        };
-
-        this.search = this.search.bind(this);
-        this.handeInputChange = this.handeInputChange.bind(this);
-        this.handleInputBlur = this.handleInputBlur.bind(this);
         this.handleInputFocus = this.handleInputFocus.bind(this);
-    }
-
-    search(value) {
-        const url = this.props.url + value;
-        Axios.get(url)
-            .then((response) => {
-                this.setState({
-                    responseData: response.data,
-                    showFields: true
-                });
-            })
-            .catch((error) => {
-                this.setState({
-                    showFields: false
-                });
-            })
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputBlur = this.handleInputBlur.bind(this);
     }
 
     handleInputFocus() {
-        if (this.state.inputValue.length > 0) {
-            this.setState({
-                showFields: true
-            });
-        }
+        this.props.changeSelectDisplay(true)
     }
 
-    handeInputChange(event) {
+    handleInputChange (event) {
         const value = event.target.value;
-        this.setState({
-            inputValue: value
-        });
         if (value.length > 2) {
-            this.search(value);
+            this.props.getData(this.props.url, value);
         }
+        console.log(this.props.inputValue.length)
     }
 
     handleInputBlur() {
-        this.setState({
-            showFields: false
-        })
+        this.props.changeSelectDisplay(false)
     }
 
     render() {
-        const responseData = this.state.responseData;
+        const { responseData, inputValue, showSelect } = this.props;
         return (
             <div className='container'>
                 <div className='frame'>
@@ -73,15 +40,15 @@ export class Typehead extends React.Component {
                             placeholder="Let's search for something!.."
                             onBlur={this.handleInputBlur}
                             onFocus={this.handleInputFocus}
-                            onChange={this.handeInputChange}
+                            onChange={this.handleInputChange}
                         />
                     </InputGroup>
                 </div>
-                {this.state.showFields
+                {(showSelect)
                     && <div className='dataFields'>
                         <ListGroup>
                             {responseData.map((item) => {
-                                return <ResultCard object={item} className='changebleClass' value={this.state.inputValue} />
+                                return <ResultCard object={item} className='changebleClass' value={inputValue} />
                             })}
                         </ListGroup>
                     </div>
