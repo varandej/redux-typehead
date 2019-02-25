@@ -1,2 +1,2 @@
-# react-typehead
-Поправлено.
+# redux-typehead
+npm run start
