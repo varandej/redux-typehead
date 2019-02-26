@@ -13,9 +13,8 @@ export class App extends React.Component {
                 <div className='container'>
                     <Typehead 
                         url={url}
-                        showSelect={typehead.showSelect}
                         inputValue={typehead.inputValue}
-                        responseData={typehead.responseData}
+                        data={typehead.data}
                         changeSelectDisplay={changeSelectDisplayAction}
                         getData={getDataAction}
                     />
@@ -33,7 +32,7 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeSelectDisplayAction: boolean => dispatch(changeSelectDisplay(boolean)),
+        changeSelectDisplayAction: data => dispatch(changeSelectDisplay(data)),
         getDataAction: (url, name) => dispatch(getData(url, name)),
     }
 }

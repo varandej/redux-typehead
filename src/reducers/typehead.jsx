@@ -6,8 +6,7 @@ import {
 } from '../actions/typeheadActions.jsx';
 
 const initialState = { 
-    inputValue: '',
-    responseData: [],
+    data: [],
     showSelect: false,
 }
 
@@ -16,7 +15,7 @@ export function typeheadReducer(state = initialState, action) {
 
         case CHANGE_SELECT_DSIPLAY:
             return Object.assign({}, state, {
-                showSelect: action.payload
+                data: action.payload
             });
 
         case GET_DATA_REQUEST:
@@ -26,13 +25,12 @@ export function typeheadReducer(state = initialState, action) {
 
         case GET_DATA_SUCCESS:
             return Object.assign({}, state, {
-                responseData: action.payload,
-                showSelect: true,
+                data: action.payload,
             });
 
         case GET_DATA_ERROR:
             return Object.assign({}, state, {
-                showSelect: false,
+                data: [],
             })
 
         default:

@@ -6,29 +6,21 @@ export class Typehead extends React.Component {
     constructor(props) {
         super(props)
 
-        this.handleInputFocus = this.handleInputFocus.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleInputBlur = this.handleInputBlur.bind(this);
-    }
-
-    handleInputFocus() {
-        this.props.changeSelectDisplay(true)
+        this.handleInputDisplay = this.handleInputDisplay.bind(this);
     }
 
     handleInputChange (event) {
         const value = event.target.value;
-        if (value.length > 2) {
-            this.props.getData(this.props.url, value);
-        }
-        console.log(this.props.inputValue.length)
+        this.props.getData(this.props.url, value);
     }
 
-    handleInputBlur() {
-        this.props.changeSelectDisplay(false)
+    handleInputDisplay() {
+        this.props.changeSelectDisplay(this.props.data);
     }
 
     render() {
-        const { responseData, inputValue, showSelect } = this.props;
+        const { data, inputValue } = this.props;
         return (
             <div className='container'>
                 <div className='frame'>
@@ -38,17 +30,18 @@ export class Typehead extends React.Component {
                             aria-describedby='inputGroup-sizing-sm'
                             type='text'
                             placeholder="Let's search for something!.."
-                            onBlur={this.handleInputBlur}
-                            onFocus={this.handleInputFocus}
+                            value={inputValue}
+                            onBlur={this.handleInputDisplay}
+                            onFocus={this.handleInputDisplay}
                             onChange={this.handleInputChange}
                         />
                     </InputGroup>
                 </div>
-                {(showSelect)
+                {(data.length > 0)
                     && <div className='dataFields'>
                         <ListGroup>
-                            {responseData.map((item) => {
-                                return <ResultCard object={item} className='changebleClass' value={inputValue} />
+                            {data.map((item) => {
+                                return <ResultCard object={item} className='changebleClass' key={item.name}/>
                             })}
                         </ListGroup>
                     </div>
