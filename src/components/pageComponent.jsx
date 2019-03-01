@@ -1,8 +1,6 @@
 import React from 'react';
 import { BackButton } from './backButton';
 
-import '../styles/_page.scss';
-
 export function Page(props) {
     const { item } = props.location.state;
 

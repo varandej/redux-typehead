@@ -55,6 +55,10 @@ export class Typehead extends React.Component {
                                             state: {item}
                                         }}
                                     >
+                                        <ResultCard 
+                                            item={item} 
+                                            className='resultCard-element' 
+                                        />
                                     </Link>
                                 )
                             })}

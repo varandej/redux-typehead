@@ -3,22 +3,21 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Typehead } from '../components/typeheadComponent';
 import { getData, changeSelectDisplay } from '../actions/typeheadActions.jsx';
-import '../styles/app.scss';
 
 export class TypeheadContainer extends React.Component {
     render() {
         const url = 'https://restcountries.eu/rest/v2/name/';
         const { typehead, changeSelectDisplayAction, getDataAction } = this.props;    
         return (
-                <div className='container'>
-                    <Typehead 
-                        url={url}
-                        inputValue={typehead.inputValue}
-                        data={typehead.data}
-                        changeSelectDisplay={changeSelectDisplayAction}
-                        getData={getDataAction}
-                    />
-                </div>
+            <div className='container'>
+                <Typehead 
+                    url={url}
+                    inputValue={typehead.inputValue}
+                    data={typehead.data}
+                    changeSelectDisplay={changeSelectDisplayAction}
+                    getData={getDataAction}
+                />
+            </div>
         )
     }
 }
