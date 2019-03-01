@@ -7,7 +7,7 @@ var htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.jsx',   
     output: {
         path: __dirname + '/dist',
         filename: 'main.js'
@@ -24,10 +24,14 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.less$/,
-                use: ["style-loader", "css-loader", "less-loader"]
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"]
             }
         ],
+    },
+    devServer: {
+        publicPath: '/',
+        historyApiFallback: true,
     },
     resolve: {
         extensions: ['.js', '.jsx', '.css', '.less']
