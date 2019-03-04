@@ -1,16 +1,24 @@
+// @flow
+
 import { 
     CHANGE_SELECT_DSIPLAY, 
     GET_DATA_REQUEST, 
     GET_DATA_SUCCESS,
     GET_DATA_ERROR,
-} from '../actions/typeheadActions.jsx';
+} from '../actions/typeheadActions';
+import type { Action } from '../types/Action';
 
-const initialState = { 
+type State = {
+    data: [],
+    inputValue: ?string
+}
+
+const initialState: State = { 
     data: [],
     inputValue: '',
 }
 
-export function typeheadReducer(state = initialState, action) {
+export default function typehead(state: State = initialState, action: Action) {
     switch (action.type) {
 
         case CHANGE_SELECT_DSIPLAY:
@@ -36,5 +44,4 @@ export function typeheadReducer(state = initialState, action) {
         default:
             return state
     }
-
 }

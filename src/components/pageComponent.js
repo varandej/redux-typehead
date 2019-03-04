@@ -1,7 +1,24 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { BackButton } from './backButton';
 
-export function Page(props) {
+type Props = {
+    location: {
+        state: {
+            item: {
+                flag: string,
+                name: string,
+                capital: string,
+                languages: Array<{
+                    name: string
+                }>
+            }
+        }
+    }
+}
+
+export function Page(props: Props) {
     const { item } = props.location.state;
 
     return (

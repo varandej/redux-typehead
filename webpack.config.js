@@ -16,8 +16,12 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'react', 'es2015'],
+                    plugins: ['transform-class-properties']
+                }
             }, 
             {
                 test: /\.css$/,

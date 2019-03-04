@@ -1,9 +1,20 @@
+// @flow
+
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import '../styles/_result-card.scss';
 
 
-export const ResultCard = ({item}) => {
+type Props = {
+    item: {
+        name: string,
+        flag: string,
+        capital: string
+    }
+}
+
+export function ResultCard(props: Props) {
+    const { item } = props;
+
     return (
         <ListGroup.Item className='resultCard_container' key={item.name}>
                 <div className='resultCard_imgContainer'>
