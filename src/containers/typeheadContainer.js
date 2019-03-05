@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Typehead } from '../components/typeheadComponent';
 import { getData, changeSelectDisplay } from '../actions/typeheadActions';
 import type { State } from '../types/State';
+import type { Dispatch } from '../types/Store';
 import type { Props, Item } from '../types/Typehead';
 
 export class TypeheadContainer extends React.Component<Props> {
@@ -31,7 +32,7 @@ const mapStateToProps = ({ typehead }: State) => ({
     data: typehead.data,
 });
 
-const mapDispatchToProps = (dispatch: *) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         changeSelectDisplay: data => dispatch(changeSelectDisplay(data)),
         getData: (url, name) => dispatch(getData(url, name)),

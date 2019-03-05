@@ -4,7 +4,6 @@ import type {
     Store as ReduxStore, 
     Dispatch as ReduxDispatch 
 } from 'redux';
-
 import type { Action } from './Action';
 import type { State } from './State';
 

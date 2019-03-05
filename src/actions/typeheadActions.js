@@ -6,10 +6,10 @@ import type { Action } from '../types/Action';
 import type { Dispatch } from '../types/Store';
 import type { Item } from '../types/Typehead';
 
-export const CHANGE_SELECT_DSIPLAY: CHANGE_SELECT_DSIPLAY = 'CHANGE_SELECT_DISPLAY';
-export const GET_DATA_REQUEST: GET_DATA_REQUEST = 'GET_DATA_REQUEST';
-export const GET_DATA_SUCCESS: GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
-export const GET_DATA_ERROR: GET_DATA_ERROR = 'GET_DATA_ERROR';
+export const CHANGE_SELECT_DSIPLAY = 'CHANGE_SELECT_DISPLAY';
+export const GET_DATA_REQUEST = 'GET_DATA_REQUEST';
+export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
+export const GET_DATA_ERROR = 'GET_DATA_ERROR';
 
 let lastData: Array<Item> = [];
 let cache: Array<string> = [];
@@ -71,8 +71,7 @@ export function getData(url: string, name: string) {
             payload: name,
         })
 
-        if (cache.indexOf(name) !== -1
-        && name.length > 2) {
+        if (cache.indexOf(name) !== -1 && name.length > 2) {
             let data: Array<Item> = searchInCache(name);
             dispatch ({
                 type: GET_DATA_SUCCESS,

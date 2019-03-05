@@ -7,10 +7,11 @@ import {
     GET_DATA_ERROR,
 } from '../actions/typeheadActions';
 import type { Action } from '../types/Action';
+import type { Item } from '../types/typehead';
 
 type State = {
-    data: [],
-    inputValue: ?string
+    +data: Array<Item>,
+    +inputValue: string
 }
 
 const initialState: State = { 
@@ -18,7 +19,7 @@ const initialState: State = {
     inputValue: '',
 }
 
-export default function typehead(state: State = initialState, action: Action) {
+export default function typehead(state: State = initialState, action: Action): State {
     switch (action.type) {
 
         case CHANGE_SELECT_DSIPLAY:
