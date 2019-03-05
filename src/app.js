@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import TypeheadContainer from './containers/typeheadContainer';

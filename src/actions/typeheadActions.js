@@ -6,7 +6,7 @@ import type { Action } from '../types/Action';
 import type { Dispatch } from '../types/Store';
 import type { Item } from '../types/Typehead';
 
-export const CHANGE_SELECT_DSIPLAY = 'CHANGE_SELECT_DISPLAY';
+export const CHANGE_SELECT_DISPLAY = 'CHANGE_SELECT_DISPLAY';
 export const GET_DATA_REQUEST = 'GET_DATA_REQUEST';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const GET_DATA_ERROR = 'GET_DATA_ERROR';
@@ -58,7 +58,7 @@ export function changeSelectDisplay(data: Array<Item>) {
     }
     return (dispatch: Dispatch) => {
         dispatch ({
-            type: CHANGE_SELECT_DSIPLAY,
+            type: CHANGE_SELECT_DISPLAY,
             payload: data,
         })
     }

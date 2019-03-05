@@ -2,7 +2,7 @@
 
 import typehead from './typehead';
 import { combineReducers } from 'redux';
-import type { Reducer } from 'redux;';
+import type { Reducer } from 'redux';
 import type { State } from '../types/State';
 import type { Action } from '../types/Action';
 
