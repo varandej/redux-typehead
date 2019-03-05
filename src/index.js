@@ -8,13 +8,17 @@ import { App } from './app';
 import { store } from './store/configureStore.js';
 import './styles/app.scss';
 
-ReactDOM.render(
-    <div>
-        <Provider store={store}>
-            <BrowserRouter>
-                <App/>  
-            </BrowserRouter>
-        </Provider>
-    </div>,
-    document.getElementById("root")
-);
+const root = document.getElementById('root');
+
+if (root !== null) {
+    ReactDOM.render(
+        <div>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <App/>  
+                </BrowserRouter>
+            </Provider>
+        </div>,
+        root
+    );
+}
