@@ -13,11 +13,15 @@
 
     }
 
-    .typehead__form-control {
-
+    .typehead__form-control{
+        border-color: rgb(203, 218, 252);
+        box-shadow: 0 0 5px 0 rgb(101, 161, 252);
+    }
+    .typehead__form-control:focus {
+        box-shadow: 0 0 25px 0 rgb(101, 161, 252);
     }
 
     .typehead__options{
-
+        margin-top: 10px;
     }
 }
