@@ -1,34 +1,36 @@
 $font-stack: inherit, sans-serif;
 
-.resultCard_container {
+.result-card {
     display: flex;
     flex-direction: row;
     font-family: $font-stack;
+
+    .result-card__img-container {
+        height: 100%;
+        width: 30%;
+    }
+
+    .result-card__img-container {
+
+        img {
+            width: 60px;
+            height: 35px;
+            border-radius: 4px;
+        }
+    }
+
+    .result-card__general-info {
+        font-weight: 600;
+        font-size: 85%;
+    }
+
+    .result-card__sub-info {
+        font-size: 70%;
+        font-style: italic; 
+    }
 }
 
 .resultCard_container:hover {
     background-color: rgb(206, 237, 255);
     cursor: pointer;
 }
-
-.resultCard_imgContainer {
-    height: 100%;
-    width: 30%;
-}
-
-.resultCard_imgContainer > img {
-    width: 60px;
-    height: 35px;
-    border-radius: 4px;
-}
-
-.resultCard_general {
-    font-weight: 600;
-    font-size: 85%;
-}
-
-.resultCard_subGeneral {
-    font-size: 70%;
-    font-style: italic; 
-}
-

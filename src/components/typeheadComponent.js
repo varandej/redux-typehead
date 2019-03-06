@@ -25,44 +25,40 @@ export class Typehead extends React.Component<Props> {
     render() {
         const { data, inputValue } = this.props;
         return (
-            <div className='container'>
-                <div className='frame'>
-                    <InputGroup size="sm" className="mb-3" >
-                        <FormControl
-                            aria-label='Small'
-                            aria-describedby='inputGroup-sizing-sm'
-                            type='text'
-                            placeholder="Let's search for something!.."
-                            value={inputValue}
-                            onBlur={this.handleInputDisplay}
-                            onFocus={this.handleInputDisplay}
-                            onChange={this.handleInputChange}
-                        />
-                    </InputGroup>
-                </div>
+            <div className='typehead'>
+                <InputGroup size="sm" className='typehead__input-group' >
+                    <FormControl
+                        className='typehead__form-control'
+                        aria-label='Small'
+                        aria-describedby='inputGroup-sizing-sm'
+                        type='text'
+                        placeholder="Let's search for something!.."
+                        value={inputValue}
+                        onBlur={this.handleInputDisplay}
+                        onFocus={this.handleInputDisplay}
+                        onChange={this.handleInputChange}
+                    />
+                </InputGroup>
                 {(data.length > 0)
-                    && <div className='dataFields'>
-                        <ListGroup> 
-                            {data.map((item: Item) => {
-                                if(typeof(item.name) === 'string') {
-                                    return ( 
-                                        <Link 
-                                            key={item.name}
-                                            to={{
-                                                pathname: `/country?name=${item.name.toLowerCase()}`,
-                                                state: {item}
-                                            }}
-                                        >
-                                            <ResultCard 
-                                                item={item} 
-                                                className='resultCard-element' 
-                                            />
-                                        </Link>
-                                    )
-                                }
-                            })}
-                        </ListGroup>
-                    </div>
+                    && <ListGroup className='typehead__options'> 
+                        {data.map((item: Item) => {
+                            if(typeof(item.name) === 'string') {
+                                return ( 
+                                    <Link 
+                                        key={item.name}
+                                        to={{
+                                            pathname: `/country?name=${item.name.toLowerCase()}`,
+                                            state: {item}
+                                        }}
+                                    >
+                                        <ResultCard 
+                                            item={item} 
+                                        />
+                                    </Link>
+                                )
+                            }
+                        })}
+                    </ListGroup>
                 }
             </div>
         )

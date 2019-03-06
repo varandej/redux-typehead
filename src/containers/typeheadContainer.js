@@ -14,15 +14,13 @@ export class TypeheadContainer extends React.Component<Props> {
         const url = 'https://restcountries.eu/rest/v2/name/';
         const { inputValue, data, changeSelectDisplay, getData } = this.props;    
         return (
-            <div className='container'>
-                <Typehead 
-                    url={url}
-                    inputValue={inputValue}
-                    data={data}
-                    changeSelectDisplay={changeSelectDisplay}
-                    getData={getData}
-                />
-            </div>
+            <Typehead
+                url={url}
+                inputValue={inputValue}
+                data={data}
+                changeSelectDisplay={changeSelectDisplay}
+                getData={getData}
+            />
         )
     }
 }

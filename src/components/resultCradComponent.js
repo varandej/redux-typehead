@@ -16,13 +16,13 @@ export function ResultCard(props: Props) {
     const { item } = props;
 
     return (
-        <ListGroup.Item className='resultCard_container' key={item.name}>
-                <div className='resultCard_imgContainer'>
+        <ListGroup.Item className='result-card' key={item.name}>
+                <div className='result-card__img-container'>
                     <img src={item.flag} alt='flag.jpg'/>
                 </div>
                 <div> 
-                    <div className='resultCard_general'>{item.name}</div>
-                    <div className='resultCard_subGeneral'>Captital: {item.capital}</div>
+                    <div className='result-card__general-info'>{item.name}</div>
+                    <div className='result-card__sub-info'>Captital: {item.capital}</div>
                 </div>
         </ListGroup.Item>
     )

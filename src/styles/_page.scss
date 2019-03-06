@@ -6,48 +6,41 @@ $font-stack: inherit, sans-serif;
     align-items: center;
 }
 
-.page-wrapper {
+.page {
     @extend %flex;
     height: 100vh;
     flex-direction: column;
-}
 
-.page-container {
-    @extend %flex;
-    flex-wrap: wrap;
-    margin: 30px;
-    max-width: 600px;
-    background-color: rgba($color: #ffffff, $alpha: 0.6);
-    border-radius: 10px;
-    font-family: $font-stack;
-    font-size: 20px;
-    letter-spacing: -0.6px;
-    word-spacing: 1.8px;
-    color: #006eff;
+    .page__container {
+        @extend %flex;
+        flex-wrap: wrap;
+        margin: 30px;
+        max-width: 600px;
+        background-color: rgba($color: #ffffff, $alpha: 0.6);
+        border-radius: 10px;
+        font-family: $font-stack;
+        font-size: 20px;
+        letter-spacing: -0.6px;
+        word-spacing: 1.8px;
+        color: #006eff;
+        }
+
+    .page__img {
+        padding: 25px;
+        width: 200px;
+        height: 130px;
+        opacity: 0.9;
     }
 
-.page-img {
-    padding: 25px;
-    width: 200px;
-    height: 130px;
-    opacity: 0.9;
-}
-
-.page-general {
-    width: 350px;
-    padding: 25px;
-}
-
-.page-name {
-    font-weight: 400;
-
-    span {
-        font-size: 70%;
+    .page__general-info {
+        width: 350px;
+        padding: 25px;
         font-weight: 400;
-        font-style: italic;
-    }
 
-}
-.page-sub {
-    width: 70vh;
+        span {
+            font-size: 70%;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
 }
