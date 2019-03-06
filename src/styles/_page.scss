@@ -1,46 +1,45 @@
 $font-stack: inherit, sans-serif;
 
 %flex {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .page {
     @extend %flex;
-    height: 100vh;
     flex-direction: column;
+    height: 100vh;
 
     .page__container {
         @extend %flex;
-        flex-wrap: wrap;
-        margin: 30px;
-        max-width: 600px;
-        background-color: rgba($color: #ffffff, $alpha: 0.6);
+        background-color: rgb(245, 248, 255);
         border-radius: 10px;
+        box-shadow: 0 0 25px 0 rgb(101, 161, 252);
+        color: #006eff;
+        flex-wrap: wrap;
         font-family: $font-stack;
         font-size: 20px;
         letter-spacing: -0.6px;
+        margin: 30px;
+        max-width: 600px;
         word-spacing: 1.8px;
-        color: #006eff;
-        box-shadow: 0 0 25px 0 rgb(101, 161, 252);
         }
 
     .page__img {
-        padding: 25px;
-        width: 200px;
         height: 130px;
         opacity: 0.9;
+        padding: 25px;
+        width: 200px;
     }
 
     .page__general-info {
-        width: 350px;
-        padding: 25px;
         font-weight: 400;
+        padding: 25px;
+        width: 350px;
 
         span {
             font-size: 70%;
-            font-weight: 400;
             font-style: italic;
         }
     }

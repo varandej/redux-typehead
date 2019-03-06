@@ -1,21 +1,21 @@
 
 .typehead {
-        width: 400px;
-        height: 400px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-
+    bottom: 0;
+    height: 400px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 400px;
+    
     .typehead__input-group {
 
     }
 
     .typehead__form-control{
         border-color: rgb(203, 218, 252);
-        box-shadow: 0 0 5px 0 rgb(101, 161, 252);
+        box-shadow: 0 0 10px 0 rgb(177, 208, 255);
     }
     .typehead__form-control:focus {
         box-shadow: 0 0 25px 0 rgb(101, 161, 252);
