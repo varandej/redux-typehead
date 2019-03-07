@@ -4,6 +4,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import TypeheadContainer from './containers/typeheadContainer';
 import { Page } from './components/pageComponent';
+import { browserHistory } from 'react-router';
 
 export function App() {
     return (    

@@ -12,11 +12,10 @@ export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
 export const GET_DATA_ERROR = 'GET_DATA_ERROR';
 
 let lastData: Array<Item> = [];
-let cache: Array<string> = [];
 let dataArr: Array<Item> = [];
+let cache: Array<string> = [];
 
-function searchInCache(name: string): Array<Item> {
-    let data: Array<Item> = [];
+function searchInCache(name: string, data: Array<Item>): Array<Item> {
     dataArr.forEach((item) => {
         if (item.name.includes(name) 
         || item.name.includes(name.toLowerCase())) {  
@@ -32,9 +31,8 @@ function searchThroughApi(url: string, name: string, dispatch: Dispatch) {
         Axios.get(fullUrl)
 
         .then((response) => {
-            let responseData = response.data;
-            if (cache.indexOf(name) === -1) cache.push(name);
-            dataArr = _.unionBy(dataArr, responseData, 'name');
+            cache.push(name);
+            dataArr = _.unionBy(dataArr, response.data, 'name');
             dispatch ({
                 type: GET_DATA_SUCCESS,
                 payload: response.data,
@@ -72,7 +70,8 @@ export function getData(url: string, name: string) {
         })
 
         if (cache.indexOf(name) !== -1 && name.length > 2) {
-            let data: Array<Item> = searchInCache(name);
+            let data: Array<Item> = [];
+            data = searchInCache(name, data);
             dispatch ({
                 type: GET_DATA_SUCCESS,
                 payload: data,

@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }
 }
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(TypeheadContainer))
+)(TypeheadContainer)

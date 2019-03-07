@@ -18,7 +18,7 @@ type Props = {
     }
 }
 
-export function Page(props: Props) {
+export const Page = (props: Props) => {
     const { item } = props.location.state;
 
     return (

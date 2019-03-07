@@ -11,6 +11,7 @@ import './styles/app.scss';
 const root = document.getElementById('root');
 
 if (root !== null) {
+    console.log(store.getState());
     ReactDOM.render(
         <div>
             <Provider store={store}>
